@@ -29,14 +29,14 @@ describe('First Api Tests', () => {
 
 
       it('Consume PATH Service', async () => {
-        const response = await agent.patch('https://httpbin.org/patch');
+        const response = await agent.patch('https://httpbin.org/patch').query(query);
       
         expect(response.status).to.equal(statusCode.OK);
         expect(response.body).to.have.property('origin');
       });
 
       it('Consume PUT Service', async () => {
-        const response = await agent.put('https://httpbin.org/put');
+        const response = await agent.put('https://httpbin.org/put').query(query);
       
         expect(response.status).to.equal(statusCode.OK);
         expect(response.body).to.have.property('origin');
@@ -55,6 +55,4 @@ describe('First Api Tests', () => {
         expect(response.status).to.equal(statusCode.OK);
         expect(response).to.have.property('headers');
       });
-
-
 });
